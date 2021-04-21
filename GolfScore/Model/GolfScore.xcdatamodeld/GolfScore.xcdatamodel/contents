@@ -15,8 +15,8 @@
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player"/>
     </entity>
     <elements>
-        <element name="Course" positionX="-123.890869140625" positionY="-195.0794067382812" width="128" height="58"/>
-        <element name="Player" positionX="-137.7744140625" positionY="-19.07904052734375" width="128" height="88"/>
-        <element name="Round" positionX="-519.3411254882812" positionY="-210.5063171386719" width="128" height="103"/>
+        <element name="Course" positionX="-123.890869140625" positionY="-195.0794067382812" width="128" height="14"/>
+        <element name="Player" positionX="-137.7744140625" positionY="-19.07904052734375" width="128" height="14"/>
+        <element name="Round" positionX="-519.3411254882812" positionY="-210.5063171386719" width="128" height="14"/>
     </elements>
 </model>

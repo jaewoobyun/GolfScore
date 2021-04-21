@@ -44,6 +44,7 @@ class MenuVC: UITableViewController {
         if indexPath.row == 1 {
 //            baseTableVC = BaseTableVC(model: "Courses")
             baseTableVC.title = "Courses"
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
         if indexPath.row == 2 {
 //            baseTableVC = BaseTableVC(model: "Players")
