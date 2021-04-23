@@ -40,23 +40,30 @@ class MenuVC: UITableViewController {
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let baseTableVC = storyboard.instantiateViewController(identifier: "BaseTableVC")
-        
+        if indexPath.row == 0 {
+            let mainVC = storyboard.instantiateViewController(identifier: "MainVC")
+            self.navigationController?.pushViewController(mainVC, animated: true)
+            
+        }
         if indexPath.row == 1 {
 //            baseTableVC = BaseTableVC(model: "Courses")
             baseTableVC.title = "Courses"
             self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationController?.pushViewController(baseTableVC, animated: true)
         }
         if indexPath.row == 2 {
 //            baseTableVC = BaseTableVC(model: "Players")
             baseTableVC.title = "Players"
+            self.navigationController?.pushViewController(baseTableVC, animated: true)
         }
         if indexPath.row == 3 {
 //            baseTableVC = BaseTableVC(model: "Rounds")
             baseTableVC.title = "Rounds"
+            self.navigationController?.pushViewController(baseTableVC, animated: true)
         }
         
         
-        self.navigationController?.pushViewController(baseTableVC, animated: true)
+        
     }
     
 }

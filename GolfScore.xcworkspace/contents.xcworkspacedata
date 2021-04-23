@@ -2,6 +2,24 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:GolfScore/Model/Player+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:GolfScore/Model/Player+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:GolfScore/Model/Round+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:GolfScore/Model/Round+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:GolfScore/Model/Course+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:GolfScore/Model/Course+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:GolfScore.xcodeproj">
    </FileRef>
    <FileRef

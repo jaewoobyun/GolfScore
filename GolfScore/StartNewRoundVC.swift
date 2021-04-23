@@ -61,6 +61,7 @@ class StartNewRoundVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as UITableViewCell
         cell.textLabel?.text = "hi"
         
+        
 //        let accessoryButton = UIButton(type: .custom)
 //        accessoryButton.setImage(UIImage(named: "plus.circle.fill"), for: UIControl.State.normal)
 //        accessoryButton.sizeToFit()
@@ -72,6 +73,8 @@ class StartNewRoundVC: UITableViewController {
         
         return cell
     }
+    
+    
     
     
     

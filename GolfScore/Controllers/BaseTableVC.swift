@@ -14,10 +14,22 @@ class BaseTableVC: UITableViewController {
     let playerOrCourseCellID = "playerOrCourseCellID"
     let roundCellID = "roundCellID"
     
+    var managedContext: NSManagedObjectContext!
+    
+    var currentPlayer: Player?
+    var currentCourse: Course?
+    var currentRound: Round?
     
     var players: [NSManagedObject] = []
     var courses: [NSManagedObject] = []
     var rounds: [NSManagedObject] = []
+    
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .medium
+        return formatter
+    }()
     
 //    init(model: String) {
 //        super.init()
@@ -51,10 +63,23 @@ class BaseTableVC: UITableViewController {
         
         registerTableViewCells()
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
+        //1
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        //        let managedContext = appDelegate.persistentContainer.viewContext
+        self.managedContext = appDelegate.coreDataStack.managedContext
+        
+        tableView.reloadData()
+        
+        
     }
     
     private func registerTableViewCells() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: playerOrCourseCellID)
+//        tableView.register(UINib(nibName: "Main", bundle: nil), forCellReuseIdentifier: playerOrCourseCellID)
 //        tableView.register(UINib(nibName: "RoundsCell", bundle: nil), forCellReuseIdentifier: roundCellID)
         tableView.register(RoundsCell.self, forCellReuseIdentifier: roundCellID)
         
@@ -73,8 +98,8 @@ class BaseTableVC: UITableViewController {
             self.navigationController?.pushViewController(createPlayerVC, animated: true)
         }
         if (self.title == "Courses") {
-//            let createCourseVC = storyboard.instantiateViewController(identifier: "CreateCourseVC")
-//            self.navigationController?.pushViewController(createCourseVC, animated: true)
+            let createCourseVC = storyboard.instantiateViewController(identifier: "CreateCourseVC")
+            self.navigationController?.pushViewController(createCourseVC, animated: true)
         }
     }
     
@@ -83,38 +108,38 @@ class BaseTableVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         //1
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let managedContext = appDelegate.persistentContainer.viewContext
+        self.managedContext = appDelegate.coreDataStack.managedContext
         
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
+
         //2
         let playerFetchRequest = NSFetchRequest<Player>(entityName: "Player")
         let roundFetchRequest = NSFetchRequest<Round>(entityName: "Round")
         let courseFetchRequest = NSFetchRequest<Course>(entityName: "Course")
-        
+
         //3
         do {
-            players = try managedContext.fetch(playerFetchRequest)
+            players = try self.managedContext.fetch(playerFetchRequest)
         } catch let error as NSError {
             print(error, error.userInfo)
         }
-        
+
         do {
             courses = try managedContext.fetch(courseFetchRequest)
         } catch let error as NSError {
             print(error, error.userInfo)
         }
-        
+
         do {
             rounds = try managedContext.fetch(roundFetchRequest)
         } catch let error as NSError {
             print(error, error.userInfo)
         }
-        
-        
-        
+
+        tableView.reloadData()
     }
     
     
@@ -136,9 +161,39 @@ class BaseTableVC: UITableViewController {
         return UISwipeActionsConfiguration(actions: [editAction])
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (ac: UIContextualAction, view: UIView, success:(Bool) -> Void) in
-            success(true)
+//            success(true)
+            
+            if (self.title == "Rounds") {
+                
+            }
+            else if (self.title == "Players") {
+                let playerToRemove = self.players[indexPath.row]
+                self.managedContext.delete(playerToRemove)
+                self.players.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                do {
+                    try self.managedContext.save()
+                } catch let error as NSError {
+                    print("Saving error: \(error), description: \(error.userInfo)")
+                }
+                
+            }
+            else if (self.title == "Courses") {
+                
+            }
+            else {
+                
+            }
+            
+            
         }
         deleteAction.backgroundColor = .red
         
@@ -150,8 +205,6 @@ class BaseTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.title == "Rounds") {
             return rounds.count
-            
-            
         }
         else if (self.title == "Players") {
             return players.count
@@ -159,40 +212,41 @@ class BaseTableVC: UITableViewController {
         else if (self.title == "Courses") {
             return courses.count
         }
-        
-        else { return 1 }
-        return 1
+        else {
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        if (self.title == "Courses" || (self.title == "Player")) {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: playerOrCourseCellID, for: indexPath) as UITableViewCell
-            
-            return cell
+        if (self.title == "Rounds") {
+            let roundCell = tableView.dequeueReusableCell(withIdentifier: roundCellID)! as! RoundsCell
+            roundCell.playersLabel.text = "a"
+            roundCell.dateLabel.text = "2021"
+            roundCell.courseLabel.text = "course"
+            roundCell.holesLabel.text = "18"
+            return roundCell
         }
-        else { // if (self.title == "Rounds")
-//            cell = tableView.dequeueReusableCell(withIdentifier: roundCellID, for: indexPath) as! RoundsCell
+        else if (self.title == "Players") {
+            let playerCell = tableView.dequeueReusableCell(withIdentifier: playerOrCourseCellID)! as UITableViewCell
+            playerCell.textLabel?.text = players[indexPath.row].value(forKey: "name") as? String
+            return playerCell
+        }
+        else if (self.title == "Courses") {
+            let courseCell = tableView.dequeueReusableCell(withIdentifier: playerOrCourseCellID)! as UITableViewCell
+            courseCell.textLabel?.text = courses[indexPath.row].value(forKey: "name") as? String
+            return courseCell
+        }
+        else {
+            let defaultCell = UITableViewCell(style: .default, reuseIdentifier: "cell") as UITableViewCell
+            defaultCell.textLabel?.text = "default"
             
-            let roundsCell = tableView.dequeueReusableCell(withIdentifier: roundCellID, for: indexPath) as! RoundsCell
-//            roundsCell.courseLabel.text = "A"
-//            roundsCell.dateLabel.text = "2021"
-//            roundsCell.holesLabel.text = "18"
-//            roundsCell.playersLabel.text = "B,C"
-            
-//            guard let roundsCell = tableView.dequeueReusableCell(withIdentifier: roundCellID, for: indexPath) as? RoundsCell else { return UITableViewCell() }
-            
-//                roundsCell.courseLabel.text = "A"
-//                roundsCell.dateLabel.text = "2021"
-//                roundsCell.holesLabel.text = "18"
-//                roundsCell.playersLabel.text = "B,C"
-            
-            return roundsCell
+            return defaultCell
         }
         
-//        return cell
+        
+        
+
     }
     
     

@@ -10,6 +10,8 @@
 		5137EAEE262FE06B0031AA2E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137EAED262FE06B0031AA2E /* CoreDataStack.swift */; };
 		5137EAF3262FF25A0031AA2E /* RoundsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137EAF1262FF25A0031AA2E /* RoundsCell.swift */; };
 		5137EAF4262FF25A0031AA2E /* RoundsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5137EAF2262FF25A0031AA2E /* RoundsCell.xib */; };
+		51A6CC0A2632AAA8000577E0 /* HoleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6CC082632AAA8000577E0 /* HoleCell.swift */; };
+		51A6CC0B2632AAA8000577E0 /* HoleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A6CC092632AAA8000577E0 /* HoleCell.xib */; };
 		51D8101D262E6E80002D6A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D8101C262E6E80002D6A7D /* AppDelegate.swift */; };
 		51D8101F262E6E80002D6A7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D8101E262E6E80002D6A7D /* SceneDelegate.swift */; };
 		51D81021262E6E80002D6A7D /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D81020262E6E80002D6A7D /* MainVC.swift */; };
@@ -22,6 +24,7 @@
 		51D81043262EB0C0002D6A7D /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D81042262EB0C0002D6A7D /* BaseTableVC.swift */; };
 		51D81046262FADDA002D6A7D /* CreatePlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D81045262FADDA002D6A7D /* CreatePlayerVC.swift */; };
 		51D81049262FB12E002D6A7D /* StartNewRoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D81048262FB12E002D6A7D /* StartNewRoundVC.swift */; };
+		51DC5E792631281D005D0943 /* CreateCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DC5E782631281D005D0943 /* CreateCourseVC.swift */; };
 		EA8A18A507985B6003EFE276 /* Pods_GolfScore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864AD307DF4AEEF1A23E364C /* Pods_GolfScore.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +33,8 @@
 		5137EAED262FE06B0031AA2E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		5137EAF1262FF25A0031AA2E /* RoundsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundsCell.swift; sourceTree = "<group>"; };
 		5137EAF2262FF25A0031AA2E /* RoundsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundsCell.xib; sourceTree = "<group>"; };
+		51A6CC082632AAA8000577E0 /* HoleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleCell.swift; sourceTree = "<group>"; };
+		51A6CC092632AAA8000577E0 /* HoleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoleCell.xib; sourceTree = "<group>"; };
 		51D81019262E6E80002D6A7D /* GolfScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D8101C262E6E80002D6A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51D8101E262E6E80002D6A7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		51D81042262EB0C0002D6A7D /* BaseTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
 		51D81045262FADDA002D6A7D /* CreatePlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlayerVC.swift; sourceTree = "<group>"; };
 		51D81048262FB12E002D6A7D /* StartNewRoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNewRoundVC.swift; sourceTree = "<group>"; };
+		51DC5E782631281D005D0943 /* CreateCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCourseVC.swift; sourceTree = "<group>"; };
 		864AD307DF4AEEF1A23E364C /* Pods_GolfScore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GolfScore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8953B475667BF78639DE0792 /* Pods-GolfScore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfScore.release.xcconfig"; path = "Target Support Files/Pods-GolfScore/Pods-GolfScore.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +98,8 @@
 			children = (
 				5137EAF1262FF25A0031AA2E /* RoundsCell.swift */,
 				5137EAF2262FF25A0031AA2E /* RoundsCell.xib */,
+				51A6CC082632AAA8000577E0 /* HoleCell.swift */,
+				51A6CC092632AAA8000577E0 /* HoleCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 				5137EAF0262FF2360031AA2E /* Views */,
 				51D8103D262E9AAA002D6A7D /* ScorecardVC.swift */,
 				51D81045262FADDA002D6A7D /* CreatePlayerVC.swift */,
+				51DC5E782631281D005D0943 /* CreateCourseVC.swift */,
 				51D81048262FB12E002D6A7D /* StartNewRoundVC.swift */,
 				51D81022262E6E80002D6A7D /* Main.storyboard */,
 				51D81028262E6E81002D6A7D /* Assets.xcassets */,
@@ -205,6 +214,7 @@
 				51D81029262E6E81002D6A7D /* Assets.xcassets in Resources */,
 				5137EAF4262FF25A0031AA2E /* RoundsCell.xib in Resources */,
 				51D81024262E6E80002D6A7D /* Main.storyboard in Resources */,
+				51A6CC0B2632AAA8000577E0 /* HoleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +272,11 @@
 				51D81046262FADDA002D6A7D /* CreatePlayerVC.swift in Sources */,
 				51D81021262E6E80002D6A7D /* MainVC.swift in Sources */,
 				51D8103E262E9AAA002D6A7D /* ScorecardVC.swift in Sources */,
+				51DC5E792631281D005D0943 /* CreateCourseVC.swift in Sources */,
 				51D8101D262E6E80002D6A7D /* AppDelegate.swift in Sources */,
 				5137EAEE262FE06B0031AA2E /* CoreDataStack.swift in Sources */,
 				51D81027262E6E80002D6A7D /* GolfScore.xcdatamodeld in Sources */,
+				51A6CC0A2632AAA8000577E0 /* HoleCell.swift in Sources */,
 				51D8101F262E6E80002D6A7D /* SceneDelegate.swift in Sources */,
 				51D8103A262E8EE4002D6A7D /* MenuVC.swift in Sources */,
 				51D81049262FB12E002D6A7D /* StartNewRoundVC.swift in Sources */,
