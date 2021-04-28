@@ -15,6 +15,9 @@ class StartNewRoundVC: UITableViewController {
     var course: Course?
     var players: [Player] = []
     
+    var courseSelected: Bool = false
+    var playersSelected: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +64,7 @@ class StartNewRoundVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as UITableViewCell
         cell.textLabel?.text = "hi"
         
-        
+        cell.accessoryType = .checkmark
 //        let accessoryButton = UIButton(type: .custom)
 //        accessoryButton.setImage(UIImage(named: "plus.circle.fill"), for: UIControl.State.normal)
 //        accessoryButton.sizeToFit()
@@ -69,9 +72,24 @@ class StartNewRoundVC: UITableViewController {
 //        cell.accessoryView = accessoryButton
         
         
-        
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && courseSelected == false {
+            
+            let selectCourseVC: SelectCourseVC = SelectCourseVC()
+            
+            self.navigationController?.pushViewController(selectCourseVC, animated: true)
+            
+            courseSelected = true
+        }
+        
+        else {
+            
+        }
+        
+        
     }
     
     

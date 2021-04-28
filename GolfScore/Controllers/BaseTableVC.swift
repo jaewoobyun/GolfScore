@@ -156,7 +156,7 @@ class BaseTableVC: UITableViewController {
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (ac: UIContextualAction, view: UIView, success:(Bool) -> Void) in
             success(true)
         }
-        editAction.backgroundColor = .blue
+        editAction.backgroundColor = .systemBlue
         
         return UISwipeActionsConfiguration(actions: [editAction])
     }

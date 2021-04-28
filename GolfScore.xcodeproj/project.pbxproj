@@ -10,6 +10,7 @@
 		5137EAEE262FE06B0031AA2E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137EAED262FE06B0031AA2E /* CoreDataStack.swift */; };
 		5137EAF3262FF25A0031AA2E /* RoundsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5137EAF1262FF25A0031AA2E /* RoundsCell.swift */; };
 		5137EAF4262FF25A0031AA2E /* RoundsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5137EAF2262FF25A0031AA2E /* RoundsCell.xib */; };
+		518C91B32638E84A00EE4C9B /* SelectCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C91B22638E84A00EE4C9B /* SelectCourseVC.swift */; };
 		51A6CC0A2632AAA8000577E0 /* HoleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A6CC082632AAA8000577E0 /* HoleCell.swift */; };
 		51A6CC0B2632AAA8000577E0 /* HoleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A6CC092632AAA8000577E0 /* HoleCell.xib */; };
 		51D8101D262E6E80002D6A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D8101C262E6E80002D6A7D /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		5137EAED262FE06B0031AA2E /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		5137EAF1262FF25A0031AA2E /* RoundsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundsCell.swift; sourceTree = "<group>"; };
 		5137EAF2262FF25A0031AA2E /* RoundsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoundsCell.xib; sourceTree = "<group>"; };
+		518C91B22638E84A00EE4C9B /* SelectCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCourseVC.swift; sourceTree = "<group>"; };
 		51A6CC082632AAA8000577E0 /* HoleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleCell.swift; sourceTree = "<group>"; };
 		51A6CC092632AAA8000577E0 /* HoleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HoleCell.xib; sourceTree = "<group>"; };
 		51D81019262E6E80002D6A7D /* GolfScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 				5137EAF0262FF2360031AA2E /* Views */,
 				51D8103D262E9AAA002D6A7D /* ScorecardVC.swift */,
 				51D81045262FADDA002D6A7D /* CreatePlayerVC.swift */,
+				518C91B22638E84A00EE4C9B /* SelectCourseVC.swift */,
 				51DC5E782631281D005D0943 /* CreateCourseVC.swift */,
 				51D81048262FB12E002D6A7D /* StartNewRoundVC.swift */,
 				51D81022262E6E80002D6A7D /* Main.storyboard */,
@@ -270,6 +273,7 @@
 				51D81043262EB0C0002D6A7D /* BaseTableVC.swift in Sources */,
 				5137EAF3262FF25A0031AA2E /* RoundsCell.swift in Sources */,
 				51D81046262FADDA002D6A7D /* CreatePlayerVC.swift in Sources */,
+				518C91B32638E84A00EE4C9B /* SelectCourseVC.swift in Sources */,
 				51D81021262E6E80002D6A7D /* MainVC.swift in Sources */,
 				51D8103E262E9AAA002D6A7D /* ScorecardVC.swift in Sources */,
 				51DC5E792631281D005D0943 /* CreateCourseVC.swift in Sources */,

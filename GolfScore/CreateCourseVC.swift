@@ -37,10 +37,26 @@ class CreateCourseVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        loadCourse()
+        
+        
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveCourse))
+        
+        navigationItem.rightBarButtonItem = saveButton
+        
+        
+    }
+    
+    func loadCourse() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         self.managedContext = appDelegate.coreDataStack.managedContext
+        let entity = NSEntityDescription.entity(forEntityName: "Course", in: managedContext)!
         
-        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
+        self.currentCourse = NSManagedObject(entity: entity, insertInto: managedContext) as? Course
+        
+        
+        
+        
     }
     
     @objc func saveCourse() {
@@ -50,12 +66,12 @@ class CreateCourseVC: UIViewController {
         
         let entity = NSEntityDescription.entity(forEntityName: "Course", in: managedContext)!
         
-        let course = NSManagedObject(entity: entity, insertInto: managedContext)
+        var course = NSManagedObject(entity: entity, insertInto: managedContext)
+        course = currentCourse!
         
         let name = self.courseNameTextField.text
         
         course.setValue(name, forKey: "name")
-        //TODO: - hole pars
         
         do {
             try managedContext.save()
@@ -68,9 +84,73 @@ class CreateCourseVC: UIViewController {
         
     }
     
+    func parTypeForEachHole(indexPath: IndexPath, course: Course) {
+        guard let holeCell = self.tableView.cellForRow(at: indexPath) as? HoleCell else { return }
+        guard let holeparString = holeCell.parTextField.text else { return }
+        let holeparInt: Int16 = Int16(holeparString) ?? 4
+        
+        
+        if indexPath.row == 0 {
+            course.hole1 = holeparInt
+        }
+        if indexPath.row == 1 {
+            course.hole2 = holeparInt
+        }
+        if indexPath.row == 2 {
+            course.hole3 = holeparInt
+        }
+        if indexPath.row == 3 {
+            course.hole4 = holeparInt
+        }
+        if indexPath.row == 4 {
+            course.hole5 = holeparInt
+        }
+        if indexPath.row == 5 {
+            course.hole6 = holeparInt
+        }
+        if indexPath.row == 6 {
+            course.hole7 = holeparInt
+        }
+        if indexPath.row == 7 {
+            course.hole8 = holeparInt
+        }
+        if indexPath.row == 8 {
+            course.hole9 = holeparInt
+        }
+        if indexPath.row == 9 {
+            course.hole10 = holeparInt
+        }
+        if indexPath.row == 10 {
+            course.hole11 = holeparInt
+        }
+        if indexPath.row == 11 {
+            course.hole12 = holeparInt
+        }
+        if indexPath.row == 12 {
+            course.hole13 = holeparInt
+        }
+        if indexPath.row == 13 {
+            course.hole14 = holeparInt
+        }
+        if indexPath.row == 14 {
+            course.hole15 = holeparInt
+        }
+        if indexPath.row == 15 {
+            course.hole16 = holeparInt
+        }
+        if indexPath.row == 16 {
+            course.hole17 = holeparInt
+        }
+        if indexPath.row == 17 {
+            course.hole18 = holeparInt
+        }
+        
+    }
     
     
 }
+
+
 
 extension CreateCourseVC: UITableViewDelegate {
     
@@ -176,13 +256,9 @@ extension CreateCourseVC: UITableViewDataSource {
         
         self.present(alertController, animated: true, completion: nil)
         
-        
+        self.parTypeForEachHole(indexPath: indexPath, course: currentCourse!)
 
     }
     
-    
-}
-
-class AlertSlide: UIAlertController {
     
 }
